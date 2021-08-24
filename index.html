@@ -19,10 +19,13 @@
     }
     function toggleScroll(elem){
         let body = document.getElementsByTagName("BODY")[0];
+        let html = document.getElementsByTagName("HTML")[0];
         if(elem.checked){
             body.classList.add("scrollLock");
+            html.classList.add("scrollLock");
         }else{
-            body.classList.remove("scrollLock")
+            body.classList.remove("scrollLock");
+            html.classList.remove("scrollLock")
         }
     }
     window.addEventListener('load', updateHeight);
