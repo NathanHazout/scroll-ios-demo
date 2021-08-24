@@ -1,1 +1,23 @@
-hello world
+<html>
+<head>
+    <style>
+        body {
+        position: fixed !important;
+        overflow-y:hidden;
+        left:0 !important;
+        top:0 !important;
+        }
+    </style>
+<script>
+    function updateHeight(){
+        document.getElementById('height').innerText = window.innerHeight;
+    }
+    window.addEventListener('load', updateHeight);
+    window.addEventListener('resize', updateHeight);
+</script>
+</head>
+<body>
+<p>Current innerHeight: <span id="height"></span></p>
+<p>Locked scrolling: <input type="checkbox" id="scroll-lock"/></p>
+</body>
+</html>
