@@ -3,15 +3,25 @@
     <style>
         body {
             font-size: large;
-            /*position: fixed !important;*/
-            /*overflow-y:hidden;*/
-            /*left:0 !important;*/
-            /*top:0 !important;*/
+        }
+        .scrollLock {
+            position: fixed !important;
+            overflow-y:hidden;
+            left:0 !important;
+            top:0 !important;
         }
     </style>
 <script>
     function updateHeight(){
         document.getElementById('height').innerText = window.innerHeight;
+    }
+    function toggleScroll(elem){
+        let body = document.getElementsByTagName("BODY")[0];
+        if(elem.checked){
+            body.classList.add("scrollLock");
+        }else{
+            body.classList.remove("scrollLock")
+        }
     }
     window.addEventListener('load', updateHeight);
     window.addEventListener('resize', updateHeight);
@@ -19,7 +29,7 @@
 </head>
 <body>
 <p style="position: fixed; top:0; right:0">Current innerHeight: <span id="height"></span></p>
-<p>Locked scrolling: <input type="checkbox" id="scroll-lock"/></p>
+<p>Locked scrolling: <input type="checkbox" id="scrollLock" onchange="toggleScroll(this)"/></p>
 <p>dummy line for scrolling</p>
 <p>dummy line for scrolling</p>
 <p>dummy line for scrolling</p>
